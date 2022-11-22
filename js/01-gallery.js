@@ -42,4 +42,12 @@ function onGalleryImageClick(evt) {
 `);
 
   instance.show();
+
+  galleryBox.addEventListener("keydown", onModalClose);
+
+  function onModalClose(evt) {
+    if (evt.key === "Escape") {
+      instance.close();
+    }
+  }
 }

@@ -15,19 +15,19 @@ function makeGalleryItemsMarkup(galleryItems) {
       return `
     <a class="gallery__item" href="${original}">
   <img class="gallery__image" src="${preview}" 
-  alt="${description}" title="${description}" />
+  alt="${description}" />
 </a>
     `;
     })
     .join("");
 }
 
-galleryBox.addEventListener("click", onGalleryImageClick);
-
-function onGalleryImageClick(evt) {
-  evt.preventDefault();
-
-  new SimpleLightbox(".gallery a", {
-    captionDelay: 250,
-  });
-}
+// creating Lightbox
+new SimpleLightbox(".gallery a", {
+  captions: true,
+  captionSelector: "img",
+  captionPosition: "bottom",
+  captionType: "attr",
+  captionsData: "alt",
+  captionDelay: 250,
+});
