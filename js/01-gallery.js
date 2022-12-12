@@ -6,8 +6,8 @@ const imagesMarkup = makeGalleryItemsMarkup(galleryItems);
 
 galleryBox.insertAdjacentHTML("beforeend", imagesMarkup);
 
-function makeGalleryItemsMarkup(galleryItems) {
-  return galleryItems
+function makeGalleryItemsMarkup(arr) {
+  return arr
     .map(({ preview, original, description }) => {
       return `
     <div class="gallery__item">
@@ -37,8 +37,8 @@ function onGalleryImageClick(evt) {
 
   const selectedImage = evt.target.getAttribute("data-source");
 
-  const instance = basicLightbox.create(`
-             <img src="${selectedImage}" width="1000" >
+  const instance = bacLightbox.create(`
+     <img src="${selectedImage}" width="1000" >
 `);
 
   instance.show();
@@ -46,7 +46,7 @@ function onGalleryImageClick(evt) {
   galleryBox.addEventListener("keydown", onModalClose);
 
   function onModalClose(evt) {
-    if (evt.key === "Escape") {
+    if (evt.code === "Escape") {
       instance.close();
     }
   }

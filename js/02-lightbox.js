@@ -9,8 +9,8 @@ const imagesMarkup = makeGalleryItemsMarkup(galleryItems);
 galleryBox.insertAdjacentHTML("beforeend", imagesMarkup);
 
 // creating gallery markup
-function makeGalleryItemsMarkup(galleryItems) {
-  return galleryItems
+function makeGalleryItemsMarkup(arr) {
+  return arr
     .map(({ preview, original, description }) => {
       return `
     <a class="gallery__item" href="${original}">
