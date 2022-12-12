@@ -48,6 +48,8 @@ function onGalleryImageClick(evt) {
   function onModalClose(evt) {
     if (evt.code === "Escape") {
       instance.close();
+      console.log(evt);
+      evt.currentTarget.removeEventListener("keydown", onModalClose);
     }
   }
 }
