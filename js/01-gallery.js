@@ -30,14 +30,14 @@ galleryBox.addEventListener("click", onGalleryImageClick);
 function onGalleryImageClick(evt) {
   evt.preventDefault();
 
-  const isGalleryBoxLinkEl = evt.target.nodeName === "IMG";
+  const isGalleryBoxLinkEl = evt.target.classList.contains("gallery__image");
   if (!isGalleryBoxLinkEl) {
     return;
   }
 
-  const selectedImage = evt.target.getAttribute("data-source");
+  const selectedImage = evt.target.dataset.source;
 
-  const instance = bacLightbox.create(`
+  const instance = basicLightbox.create(`
      <img src="${selectedImage}" width="1000" >
 `);
 
